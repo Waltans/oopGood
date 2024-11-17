@@ -1,5 +1,7 @@
 package ru.oop.task3;
 
+import java.util.List;
+
 /**
  * <b>Задача 3:</b><br>
  * То же самое, что и задача 2, но добраться нужно с пересадками<br>
@@ -19,10 +21,30 @@ package ru.oop.task3;
 public class MainTask3 {
 
     /**
-     * Переехать из текущего места в заданную точку
-     * на любом, заранее определённом транспорте
-     * @see Person
-     * @see Position
+     * Переехать из текущего места в заданную точку, можно использовать несколько видов транспорта
+     *
+     * @see Person - тот, кто хочет добраться
+     * @see Position - конечная точка
+     * @see List<Drivable> - список трансопртов, которые нужно использовать, для того чтобы добраться до конечной точки
      */
-    // TODO реализовать метод moveTo(...)
+    public void moveTo(Person person, Position destination, List<Drivable> transports){
+        Position currentPosition = person.getPosition();
+
+        for (Drivable transport : transports) {
+            if (!person.getPosition().equals(transport.getPosition())) {
+                person.walk(transport.getPosition());
+            }
+
+            currentPosition = transport.drive(person, destination);
+
+            if (currentPosition.equals(destination))
+                break;
+        }
+
+        if (!currentPosition.equals(destination)) {
+            person.walk(destination);
+        }
+
+        assert person.getPosition().equals(destination);
+    }
 }

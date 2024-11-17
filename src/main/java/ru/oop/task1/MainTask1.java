@@ -19,9 +19,16 @@ public class MainTask1 {
 
     /**
      * Переехать из текущего места в заданную точку
+     * едем максимальное расстояние на машине, если не достигаем конечного результата, то идем пешком
      */
     public void moveTo(Person person, Position destination) {
-        // TODO
+        Drivable car = new Car(person, person.getPosition());
+        Position pos = car.drive(person, destination);
+
+        if (!pos.equals(destination)) {
+            person.walk(destination);
+        }
+
         assert person.getPosition() == destination;
     }
 }
