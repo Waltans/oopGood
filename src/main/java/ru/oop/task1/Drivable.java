@@ -9,8 +9,7 @@ public interface Drivable {
      * Едем до конечной точки, если мы можем добраться до неё
      *
      * @param position - Куда мы должны доехать
-     * @param person - водитель
      * @return - точка, до которой удалось доехать
      */
-    Position drive(Person person, Position position);
+    Position drive(Position position);
 }

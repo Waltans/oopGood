@@ -22,8 +22,8 @@ public class MainTask1 {
      * едем максимальное расстояние на машине, если не достигаем конечного результата, то идем пешком
      */
     public void moveTo(Person person, Position destination) {
-        Drivable car = new Car(person, person.getPosition());
-        Position pos = car.drive(person, destination);
+        Drivable car = new Car(person);
+        Position pos = car.drive(destination);
 
         if (!pos.equals(destination)) {
             person.walk(destination);

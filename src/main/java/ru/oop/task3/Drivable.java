@@ -6,7 +6,7 @@ package ru.oop.task3;
 public interface Drivable extends Positioned {
 
     /**
-     * Едем до конечной точки, если мы можем добраться до неё
+     * Доезжаем до конечной точки, если мы можем добраться до неё
      *
      * @param position - Куда мы должны доехать
      * @param person - водитель

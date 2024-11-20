@@ -26,15 +26,16 @@ public class MainTask2 {
     /**
      * Переехать из текущего места в заданную точку
      * на любом, заранее определённом транспорте
+     *
      * @see Person - тот, кто хочет добраться
      * @see Position - куда нужно добраться
      */
     public void moveTo(Person person, Position destination, Drivable transport) {
-        if (!person.getPosition().equals(transport.getPosition())){
-            person.walk(destination);
+        if (!person.getPosition().equals(transport.getPosition())) {
+            person.walk(transport.getPosition());
         }
 
-        if (!person.getPosition().equals(transport.drive(person, destination))){
+        if (!person.getPosition().equals(transport.drive(person, destination))) {
             person.walk(destination);
         }
 
